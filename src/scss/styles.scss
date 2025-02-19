@@ -1,0 +1,154 @@
+// Import all of Bootstrap CSS
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/bootstrap/scss/functions";
+
+// Default variable overrides
+$body-bg: #ffffff;
+$body-color: #000000;
+$font-family-sans-serif: "Karla", sans-serif;
+$font-family-serif: "Markazi Text Variable", Georgia, serif;
+$font-size-base: 16px;
+:root {
+    font-family: Karla, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  
+    color-scheme: light dark;
+    color: black;
+    background-color: white;
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    width: 100%;
+  }
+
+  nav > img  {
+    padding-left: 8px;
+    padding-right: 16px;
+  }
+  .nav-item {
+    padding: 8px;
+  }
+  header {
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+  }
+
+  a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+  }
+  a:hover {
+    color: #535bf2;
+  }
+  
+  body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+  }
+  
+  h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+  }
+  
+  button {
+    border-radius: 16px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #f4ce14;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
+  button:hover {
+    border-color: #495e57;
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+  
+  .display-title {
+    font-family: 'Markazi Text Variable', Georgia, serif;
+    font-size: 64pt;
+    font-weight: medium;
+  }
+  
+  .sub-title {
+    font-family: 'Markazi Text Variable', Georgia, serif;
+    font-size: 40pt;
+    font-weight: regular;
+  }
+  
+  .lead-text {
+    font-family: 'Karla', sans-serif;
+    font-size: 18pt;
+    font-weight: medium;
+  }
+  
+  .section-title 
+  {
+    font-family: 'Karla', sans-serif;
+    font-size: 20pt;
+    font-weight: extra-bold;
+    text-transform: uppercase;
+  }
+  
+  .categories-text {
+    font-family: 'Karla', sans-serif;
+    font-size: 10pt;
+    font-weight: extra-bold;
+  }
+  
+  .card-title {
+    font-family: 'Karla', sans-serif;
+    font-size: 18pt;
+    font-weight: bold;
+  }
+  
+  .paragraph {
+    font-family: 'Karla', sans-serif;
+    font-size: 16pt;
+    font-weight: regular;
+    line-height: 1.5;
+    color: #495e57;
+  }
+  
+  .hightlight {
+    font-family: 'Karla', sans-serif;
+    font-size: 16pt;
+    font-weight: medium;
+    color: #495e57;
+  }
+  
+  @media (prefers-color-scheme: light) {
+    :root {
+      color: #213547;
+      background-color: #ffffff;
+    }
+    a:hover {
+      color: #747bff;
+    }
+    button {
+      background-color: #f9f9f9;
+    }
+  }
+  
