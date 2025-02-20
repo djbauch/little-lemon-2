@@ -2,16 +2,28 @@ import * as React from 'react'
 
 export const Nav = () => {
   return (
-    <nav className='navbar navbar-expand-lg bg-light'>
+    <nav className='nav-bar'>
       <img src='/Logo.svg' alt='Logo' />
 
       <ul className='navbar-nav nav me-auto mb-2 mb-lg-0 nav-pills'>
-        <li className='nav-item'>Home</li>
-        <li className='nav-item'>About</li>
-        <li className='nav-item'>Menu</li>
-        <li className='nav-item'>Reservations</li>
-        <li className='nav-item'>Order Online</li>
-        <li className='nav-item'>Login</li>
+        <li className='nav-item'>
+          <a href='#home'>Home</a>
+        </li>
+        <li className='nav-item'>
+          <a href='about'>About</a>
+        </li>
+        <li className='nav-item'>
+          <a href='#menu'>Menu</a>
+        </li>
+        <li className='nav-item'>
+          <a href='#reservations'>Reservations</a>
+        </li>
+        <li className='nav-item'>
+          <a href='#order'>Order&nbsp;Online</a>
+        </li>
+        <li className='nav-item'>
+          <a href='#login'>Login</a>
+        </li>
       </ul>
     </nav>
   )

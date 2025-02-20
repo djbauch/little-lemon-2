@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import * as React from 'react'
+import Hero from './Hero'
+import Highlights from './Highlights'
+import Testimonials from './Testimonials'
+import About from './About'
 
 export const Main = () => {
-  const [count, setCount] = useState(0)
-
   return (
     <main>
-      <h1>Counter</h1>
-      <p>{count}</p>
-      <button onClick={() => setCount(count + 1)}>+</button>
-      <button onClick={() => setCount(count - 1)}>-</button>
+      <Hero />
+      <Highlights />
+      <Testimonials />
+      <About />
     </main>
   )
 }
