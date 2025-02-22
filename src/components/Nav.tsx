@@ -5,7 +5,7 @@ export const Nav = () => {
     <nav className='nav-bar'>
       <img src='/Logo.svg' alt='Logo' />
 
-      <ul className='navbar-nav nav me-auto mb-2 mb-lg-0 nav-pills'>
+      <ul className='navbar-nav'>
         <li className='nav-item'>
           <a href='#home'>Home</a>
         </li>
