@@ -1,5 +1,19 @@
 import * as React from 'react'
+import styled from '@emotion/styled'
 
+const Button = styled.button`
+  background-color: #f4ce14;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 32px;
+  font-weight: regular;
+  margin: 8px 2px;
+  cursor: pointer;
+`
 export const Hero = () => {
   return (
     <section className='hero'>
@@ -10,10 +24,11 @@ export const Hero = () => {
       <p>We are a family owned Mediterranean restaurant, focused on traditional reciples served with a modern twist
       </p>
       </div>
+      <Button>Reserve a Table</Button>
       </section>
       <section className='right-side'>
 
-        <img src='/restauranfood.jpg' height='1080px' alt='food on a tray'/>
+        <img src='/restauranfood720.jpg' height='1080px' alt='food on a tray'/>
         </section>
     </section>
   )
