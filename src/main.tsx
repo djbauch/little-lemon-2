@@ -8,6 +8,7 @@ import '@fontsource-variable/karla'
 //import * as bootstrap from 'bootstrap'
 import App from './App.tsx'
 import { createTheme } from '@mui/material'
+import { ThemeProvider } from '@emotion/react'
 
 const theme = createTheme({
   palette: {
@@ -28,27 +29,40 @@ const theme = createTheme({
     fontFamily: 'Karla, system-ui, Avenir, Helvetica, Arial, sans-serif',
     h1: {
       fontFamily: 'Markazi Text Variable, Georgia, serif',
+      fontSize: '64pt',
+      fontWeight: 'bold',
     },
     h2: {
-      fontFamily: 'Karla',
+      fontFamily: 'Markazi Text Variable, Georgia, serif',
+      fontSize: '48pt',
+      fontWeight: 'regular'
     },
+    // Card Title
     h3: {
       fontFamily: 'Karla',
     },
     h4: {
       fontFamily: 'Karla',
     },
+    // Card Title
     h5: {
       fontFamily: 'Karla',
+      fontSize: '18pt',
+      fontWeight: 'bold',
     },
     h6: {
       fontFamily: 'Karla',
+      fontSize: '18pt',
+      fontWeight: 'bold',
+      color: '#EE9972',
     },
     body1: {
       fontFamily: 'Karla',
     },
     body2: {
-      fontFamily: 'Karla',
+      fontFamily: 'Karla, system-ui, Avenir, Helvetica, Arial, sans-serif',
+      fontSize: '16pt',
+      fontWeight: 'regular',
     },
     subtitle1: {
       fontFamily: 'Markazi Text Variable, Georgia, serif',
@@ -56,16 +70,30 @@ const theme = createTheme({
       fontSize: '40pt',
     },
     button: {
-      fontFamily: 'Karla',
+      fontFamily: 'Karla, system-ui, Avenir, Helvetica, Arial, sans-serif',
     },
     caption: {
       fontFamily: 'Karla',
     }
+  },
+  components: {
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          backgroundColor: 'white',
+          borderRadius: '16px',
+          boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+        },
+      },
+    }
   }
 })
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <CssBaseline />
+    <ThemeProvider theme={theme}>
     <App />
+    </ThemeProvider>
   </StrictMode>
 )
