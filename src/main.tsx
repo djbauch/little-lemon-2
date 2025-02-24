@@ -6,9 +6,15 @@ import './scss/styles.scss'
 //import './index.css'
 import '@fontsource-variable/karla'
 //import * as bootstrap from 'bootstrap'
-import App from './App.tsx'
+import App from './layouts/App.tsx'
 import { createTheme } from '@mui/material'
 import { ThemeProvider } from '@emotion/react'
+import { BrowserRouter, Routes, Route } from 'react-router'
+import About from './layouts/About.tsx'
+import Login from './layouts/Login.tsx'
+import Menu from './layouts/Menu.tsx'
+import Order from './layouts/Order.tsx'
+import Reservations from './layouts/Reservations.tsx'
 
 const theme = createTheme({
   palette: {
@@ -93,7 +99,16 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <CssBaseline />
     <ThemeProvider theme={theme}>
-    <App />
+      <BrowserRouter>
+      <Routes>
+      <Route path='/' element={<App />} />
+      <Route path='/about' element={<About />} />
+      <Route path='/menu' element={<Menu />} />
+      <Route path='/reservations' element={<Reservations />} />
+      <Route path='/order' element={<Order />} />
+      <Route path='/login' element={<Login />} />
+    </Routes>
+    </BrowserRouter>
     </ThemeProvider>
   </StrictMode>
 )
