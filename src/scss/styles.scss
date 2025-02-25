@@ -96,6 +96,7 @@ nav > img {
   font-size: 18px;
 }
 
+
 a.active{
   background-color: #f4ce14;
 }
@@ -121,8 +122,8 @@ a:hover {
 main {
   display: block;
   width: 100%;
-  color: #ffff;
-  background-color: #434343;
+  color: #000000;
+  background-color: white;
 }
 
 .hero {
@@ -153,6 +154,7 @@ main {
   object-fit: contain;
   border-radius: 32px;
 }
+
 .hero h1 {
   margin-left: 64px;
   margin-top: 1em;
@@ -162,6 +164,7 @@ main {
   color: var(--brand-light-color);
   font-family: 'Markazi Text Variable', Georgia, serif;
 }
+
 .hero h2 {
   margin-left: 64px;
   margin-top: 0;
@@ -188,11 +191,15 @@ main {
   margin-top: 64px;
 }
 
+
 .textblock {
   display: block;
   width: 32em;
   max-width: 32em;
   margin-top: 0;
+}
+
+.hero .textblock {
   margin-left: 64px;
 }
 
@@ -203,8 +210,8 @@ main {
 
 }
 
-.highlights > h2 {
-  margin-top: 80px;
+.highlights  {
+  margin-top: 120px;
   margin-left: 64px;
 }
 
@@ -221,7 +228,7 @@ main {
 
 .about {
   display: block;
-  background-color: var(--brand-highlight-dark-color);
+  background-color: white;
 }
 
 .footer {
@@ -240,9 +247,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #495e57;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -293,11 +302,16 @@ button:focus-visible {
   color: #495e57;
 }
 
-.hightlight {
+.highlight {
   font-family: 'Karla', sans-serif;
   font-size: 16pt;
   font-weight: medium;
   color: #495e57;
+}
+
+.bounded {
+  margin-left: 64px;
+  margin-right: 64px;
 }
 
 @media (prefers-color-scheme: light) {

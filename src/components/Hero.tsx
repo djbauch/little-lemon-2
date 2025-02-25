@@ -1,7 +1,8 @@
 import * as React from 'react'
+
 import styled from '@emotion/styled'
 
-const Button = styled.button`
+export const Button = styled.button`
   background-color: #f4ce14;
   border: none;
   color: black;
@@ -21,14 +22,14 @@ export const Hero = () => {
       <h1>Little Lemon</h1>
       <h2>Ipswich</h2>
       <div className='textblock'>
-      <p>We are a family owned Mediterranean restaurant, focused on traditional reciples served with a modern twist
+      <p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist
       </p>
       </div>
       <Button>Reserve a Table</Button>
       </section>
       <section className='right-side'>
 
-        <img src='/restauranfood720.jpg' height='1080px' alt='food on a tray'/>
+        <img src='/restauranfood720.jpg' height='1020px' alt='food on a tray'/>
         </section>
     </section>
   )

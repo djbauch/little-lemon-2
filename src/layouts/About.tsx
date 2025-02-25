@@ -1,13 +1,13 @@
 import * as React from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-
+import Hero from '../components/Hero'
 export const About = () => {
   return (
     <>
       <Header />
-      <section className='about'>
-        <h2>About</h2>
+      <section className='about' style={{marginBottom: '128px'}}>
+        <Hero/>
       </section>
       <Footer />
     </>

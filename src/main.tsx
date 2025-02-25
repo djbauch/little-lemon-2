@@ -41,29 +41,31 @@ const theme = createTheme({
     h2: {
       fontFamily: 'Markazi Text Variable, Georgia, serif',
       fontSize: '48pt',
-      fontWeight: 'regular'
+      fontWeight: 'regular',
     },
-    // Card Title
+
     h3: {
-      fontFamily: 'Karla',
+      fontFamily: 'Karla, system-ui, Avenir, Helvetica, Arial, sans-serif',
+      fontSize: '24pt',
+      fontWeight: 'bold',
     },
     h4: {
-      fontFamily: 'Karla',
+      fontFamily: 'Karla, system-ui, Avenir, Helvetica, Arial, sans-serif',
     },
     // Card Title
     h5: {
-      fontFamily: 'Karla',
+      fontFamily: 'Karla, system-ui, Avenir, Helvetica, Arial, sans-serif',
       fontSize: '18pt',
       fontWeight: 'bold',
     },
     h6: {
-      fontFamily: 'Karla',
+      fontFamily: 'Karla, system-ui, Avenir, Helvetica, Arial, sans-serif',
       fontSize: '18pt',
       fontWeight: 'bold',
       color: '#EE9972',
     },
     body1: {
-      fontFamily: 'Karla',
+      fontFamily: 'Karla, system-ui, Avenir, Helvetica, Arial, sans-serif',
     },
     body2: {
       fontFamily: 'Karla, system-ui, Avenir, Helvetica, Arial, sans-serif',
@@ -79,8 +81,8 @@ const theme = createTheme({
       fontFamily: 'Karla, system-ui, Avenir, Helvetica, Arial, sans-serif',
     },
     caption: {
-      fontFamily: 'Karla',
-    }
+      fontFamily: 'Karla, system-ui, Avenir, Helvetica, Arial, sans-serif',
+    },
   },
   components: {
     MuiCard: {
@@ -91,8 +93,8 @@ const theme = createTheme({
           boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
         },
       },
-    }
-  }
+    },
+  },
 })
 
 createRoot(document.getElementById('root')!).render(
@@ -100,15 +102,15 @@ createRoot(document.getElementById('root')!).render(
     <CssBaseline />
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-      <Routes>
-      <Route path='/' element={<App />} />
-      <Route path='/about' element={<About />} />
-      <Route path='/menu' element={<Menu />} />
-      <Route path='/reservations' element={<Reservations />} />
-      <Route path='/order' element={<Order />} />
-      <Route path='/login' element={<Login />} />
-    </Routes>
-    </BrowserRouter>
+        <Routes>
+          <Route path='/' element={<App />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/menu' element={<Menu />} />
+          <Route path='/reservations' element={<Reservations />} />
+          <Route path='/order' element={<Order />} />
+          <Route path='/login' element={<Login />} />
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   </StrictMode>
 )
