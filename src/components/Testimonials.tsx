@@ -1,10 +1,25 @@
-import * as React from 'react'
-
+import { useState } from 'react'
+import { TestimonialData } from '../types'
+import { Box, Grid2 as Grid, Typography } from '@mui/material'
+import RatingBox from './RatingBox'
 export const Testimonials = () => {
+  const [testimonials] = useState<TestimonialData[]>([
+    { rating: 5, name: 'John Doe', comment: 'Great service!', photo: 'john-doe.jpg' },
+    { rating: 4, name: 'Jane Doe', comment: 'Good job!', photo: 'jane-doe.jpg' },
+    { rating: 5, name: 'John Smith', comment: 'Excellent!', photo: 'john-smith.jpg' },
+    { rating: 3, name: 'Jane Smith', comment: 'Could be better. It was too loud and there were too many people there.', photo: 'jane-smith.jpg' },
+  ])
   return (
-    <section className='testimonials'>
-      <h2>Testimonials</h2>
-    </section>
+    <Box component='section' className='testimonials' sx={{display: 'flex', flexDirection: 'column', padding: '16px', alignItems: 'center' }}>
+      <Typography variant='h2'>Testimonials</Typography>
+      <Grid container spacing={2}>
+        {testimonials.map((testimonial) => (
+          <Grid key={testimonial.name}>
+            <RatingBox testimonialData={testimonial} />
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
   )
 }
 
