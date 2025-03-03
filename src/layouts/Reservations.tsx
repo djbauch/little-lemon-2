@@ -82,8 +82,8 @@ export const Reservations = () => {
   return (
     <>
       <Header />
-      <section className='reservations'>
-        <h2>Reservations</h2>
+      <section className='reservations' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#f5f5f5', padding: '20px' }}>
+
         <BookingForm availableTimes={availableTimes} setAvailableTimes={setAvailableTimes} />
       </section>
       <Footer />
