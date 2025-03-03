@@ -20,7 +20,7 @@ const BookingForm = (props: BookingFormProps) => {
           ))}
         </select>
         <label htmlFor='res-guests'>Number of guests</label>
-        <input type='number' placeholder='1' min='1' max='10' id='guests' />
+        <input type='number' placeholder='1' min='1' max='10' id='res-guests' />
         <label htmlFor='occasion'>Occasion</label>
         <select id='occasion'>
           <option>None</option>
