@@ -1,7 +1,7 @@
 
 import { DateTime } from 'luxon'
 
-interface ReservationState {
+export interface ReservationState {
   date: string
   availableTimes: string[]
   time: string

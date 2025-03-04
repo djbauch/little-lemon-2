@@ -106,7 +106,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path='/' element={<App />} />
           <Route path='/about' element={<About />} />
           <Route path='/menu' element={<Menu />} />
-          <Route path='/reservations' element={<Reservations id='Hello'/>} />
+          <Route path='/reservations' element={<Reservations />} />
           <Route path='/order' element={<Order />} />
           <Route path='/login' element={<Login />} />
         </Routes>
