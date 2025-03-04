@@ -3,9 +3,9 @@ import {render} from '@testing-library/react'
 import '@testing-library/jest-dom'
 
 test('BookingForm renders', () => {
-  const availableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
-  const setAvailableTimes = jest.fn()
-  const { getByText, getByLabelText } = render(<BookingForm availableTimes={availableTimes} setAvailableTimes={setAvailableTimes} />)
+  //const availableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
+  //const setAvailableTimes = jest.fn()
+  const { getByText, getByLabelText } = render(<BookingForm />)
   const heading = getByText(/Reserve a Table/i)
   const dateLabel = getByLabelText(/Choose date/i)
   const timeLabel = getByLabelText(/Choose time/i)
