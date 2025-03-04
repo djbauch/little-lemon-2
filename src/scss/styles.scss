@@ -14,11 +14,16 @@ $font-size-base: 16px;
   --serif-font: 'Markazi Text Variable', Georgia, serif;
   font-weight: 400;
   --brand-dark-color: #495e57;
-  --brand-light-color: #f4ce14;
+  --brand-light-color: white;
   --brand-secondary-dark-color: #ee9972;
   --brand-secondary-light-color: #fbdabb;
   --brand-highlight-light-color: #edefee;
   --brand-highlight-dark-color: #333333;
+  --color-gray-50: oklch(98.42% 0.0034 247.86);
+  --color-gray-100: oklch(12% 9.5% 264 / 5%);
+  --color-gray-200: oklch(12% 9.% 264 / 8%);
+  --color-gray-300: oklch(12% 8.5% 264 / 17%);
+  --color-gray-900: oklch(12% 5% 264 / 90%);
 
   color-scheme: light dark;
   color: black;
@@ -314,6 +319,54 @@ button:focus-visible {
   margin-right: 64px;
 }
 
+// Should be modularized
+.Field {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.25rem;
+}
+
+.ScrubArea {
+  cursor: ew-resize;
+  font-weight: bold;
+  user-select: none;
+}
+
+.ScrubAreaCursor {
+  filter: drop-shadow(0 1px 1px #0008)
+}
+
+.Label {
+  cursor: ew-resize;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  color: var(--brand-dark-color);
+}
+
+.Group {
+  display: flex;
+}
+
+.Input {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--color-gray-200);
+  border-bottom: 1px solid var(--color-gray-200);
+  border-left: none;
+  border-right: none;
+  width: 6rem;
+  height: 2.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: normal;
+  background-color: transparent;
+  color: var(--color-gray-900);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
