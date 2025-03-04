@@ -26,6 +26,7 @@ export const fetchAPI = function (date: DateTime) {
   return result
 }
 
-export const submitAPI = function (formData: any) {
+export const submitAPI = function (formData: ReservationState) {
+  console.log('Submitting form:', formData)
   return true
 }

@@ -1,9 +1,9 @@
 import { useEffect, useReducer } from 'react'
 import { DateTime } from 'luxon'
-import { TextField, Button, Container, Typography, Box, InputLabel, Select, MenuItem } from '@mui/material'
+import {  Button, Container, Typography, Box, InputLabel, Select, MenuItem } from '@mui/material'
 import { NumberField } from '@base-ui-components/react/number-field'
 import { fetchAPI, submitAPI } from '../APIMock'
-import styles from './BookingForm.module.css'
+import styles from './BookingForm.module.scss'
 import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
 
