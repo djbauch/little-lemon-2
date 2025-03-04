@@ -193,7 +193,7 @@ const BookingForm = () => {
             </MenuItem>
           ))}
         </Select>
-        <input type='submit' value='Make your reservation' />
+        <Button type='submit' variant='contained'>Make your reservation</Button>
       </Box>
     </Container>
   )
