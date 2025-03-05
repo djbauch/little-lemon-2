@@ -1,5 +1,10 @@
 
 import { DateTime } from 'luxon'
+import { createSlice } from '@reduxjs/toolkit'
+//import type { PayloadAction } from '@reduxjs/toolkit'
+//import { createAppSlice } from '../../app/createAppSlice'
+//import type { AppThunk } from '../../app/store'
+//import { fetchAPI } from '../../APIMock'
 
 export interface ReservationState {
   date: string
@@ -83,3 +88,27 @@ export const initialState: ReservationState = {
   numberOfGuests: 1,
   occasion: 'None',
 }
+
+export const reservationSlice = createSlice({
+  name: 'reservation',
+  initialState,
+  reducers: {
+    updateReservation(state, action) {
+      const { date, time, numberOfGuests, occasion } = action.payload
+      state.date = date
+      state.time = time
+      state.numberOfGuests = numberOfGuests
+      state.occasion = occasion
+    }
+  },
+  selectors: {
+    selectDate: (state) => state.date,
+    selectAvailableTimes: (state) => state.availableTimes,
+    selectTime: (state) => state.time,
+    selectNumberOfGuests: (state) => state.numberOfGuests,
+    selectOccasion: (state) => state.occasion,
+  }
+})
+
+export const { updateReservation } = reservationSlice.actions
+export const { selectDate, selectAvailableTimes, selectTime, selectNumberOfGuests, selectOccasion } = reservationSlice.selectors

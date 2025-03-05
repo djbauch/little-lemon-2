@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { ReservationState } from './reducers/reservationReducer'
+import { ReservationState } from './features/reservation/reservationSlice'
 
 const seededRandom = function (seed: number) {
   const m = 2 ** 35 - 31

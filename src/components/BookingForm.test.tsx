@@ -1,17 +1,21 @@
 import BookingForm from './BookingForm'
-import {render} from '@testing-library/react'
-import '@testing-library/jest-dom'
+import {render} from 'vitest-browser-react'
+import { expect, test } from 'vitest'
+import { Provider } from 'react-redux'
+import { store } from '../app/store'
+import { BrowserRouter } from 'react-router'
+import { page } from '@vitest/browser/context'
 
-test('BookingForm renders', () => {
-  //const availableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
-  //const setAvailableTimes = jest.fn()
-  const { getByText, getByLabelText } = render(<BookingForm />)
-  const heading = getByText(/Reserve a Table/i)
-  const dateLabel = getByLabelText(/Choose date/i)
-  const timeLabel = getByLabelText(/Choose time/i)
-  const guestsLabel = getByLabelText(/Number of guests/i)
-  const occasionLabel = getByLabelText(/Occasion/i)
-  const submitButton = getByText(/Make your reservation/i)
+test('BookingForm renders', async () => {
+  const screen = render(
+  <Provider store={store}><BookingForm /></Provider>, {wrapper: BrowserRouter})
+  const { getByLabelText, getByText } = screen
+  const heading = getByText(/Reserve a Table/i).element() as HTMLElement
+  const dateLabel = getByLabelText(/Choose date/i).element() as HTMLElement
+  const timeLabel = getByLabelText(/Choose time/i).element() as HTMLElement
+  const guestsLabel = getByLabelText(/Number of guests/i).element() as HTMLElement
+  const occasionLabel = getByLabelText(/Occasion/i).element() as HTMLElement
+  const submitButton = getByText(/Make your reservation/i).element() as HTMLElement
   expect(heading).toBeInTheDocument()
   expect(dateLabel).toBeInTheDocument()
   expect(timeLabel).toBeInTheDocument()

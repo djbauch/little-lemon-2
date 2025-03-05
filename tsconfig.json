@@ -19,5 +19,5 @@
       "noFallthroughCasesInSwitch": true,
       "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
-  "include": ["src", "./jest.setup.ts", "typings.d.ts"]
+  "include": ["src", "./jest.setup.ts", "vite.config.ts", "typings.d.ts"]
 }

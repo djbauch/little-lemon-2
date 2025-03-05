@@ -10,11 +10,14 @@ import App from './layouts/App.tsx'
 import { createTheme } from '@mui/material'
 import { ThemeProvider } from '@emotion/react'
 import { BrowserRouter, Routes, Route } from 'react-router'
-import About from './layouts/About.tsx'
-import Login from './layouts/Login.tsx'
-import Menu from './layouts/Menu.tsx'
-import Order from './layouts/Order.tsx'
-import Reservations from './layouts/Reservations.tsx'
+import About from './layouts/About'
+import Login from './layouts/Login'
+import Menu from './layouts/Menu'
+import Order from './layouts/Order'
+import Reservations from './layouts/Reservations'
+import Acknowledgement from './layouts/Acknowledgement'
+import { Provider } from 'react-redux'
+import { store } from './app/store'
 
 const theme = createTheme({
   palette: {
@@ -102,14 +105,17 @@ createRoot(document.getElementById('root')!).render(
     <CssBaseline />
     <ThemeProvider theme={theme}>
       <BrowserRouter>
+      <Provider store={store}>
         <Routes>
           <Route path='/' element={<App />} />
           <Route path='/about' element={<About />} />
           <Route path='/menu' element={<Menu />} />
           <Route path='/reservations' element={<Reservations />} />
+          <Route path='/acknowledgement' element={<Acknowledgement />} />
           <Route path='/order' element={<Order />} />
           <Route path='/login' element={<Login />} />
         </Routes>
+        </Provider>
       </BrowserRouter>
     </ThemeProvider>
   </StrictMode>

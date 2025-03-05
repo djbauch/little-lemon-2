@@ -1,29 +1,43 @@
-import { useEffect, useReducer } from 'react'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router'
 import { DateTime } from 'luxon'
-import {  Button, Container, Typography, Box, InputLabel, Select, MenuItem } from '@mui/material'
+import { Button, Container, Typography, Box, InputLabel, Select, MenuItem } from '@mui/material'
 import { NumberField } from '@base-ui-components/react/number-field'
 import { fetchAPI, submitAPI } from '../APIMock'
 import styles from './BookingForm.module.scss'
 import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
-import { RAK, reservationReducer, initialState } from '../reducers/reservationReducer'
+import {
+  initialState,
+  updateReservation,
+} from '../features/reservation/reservationSlice'
 
+import { useAppDispatch } from '../app/hooks'
 
 const BookingForm = () => {
-  const [formState, dispatch] = useReducer(reservationReducer, initialState)
+  const dispatch = useAppDispatch()
+  const [formState, setFormState] = useState(initialState)
+  const navigate = useNavigate()
+  const [success, setSuccess] = useState(false)
 
   useEffect(() => {
     const times = fetchAPI(DateTime.fromISO(formState.date))
-    dispatch({ type: RAK.SetAvailableTimes, payload: times })
+    setFormState({ ...formState, availableTimes: times })
   }, [formState.date])
+
+  useEffect(() => {
+    if (success) {
+      navigate('/acknowledgement')
+    }
+  }, [success])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log('Reservation submitted:', formState.date, formState.time, formState.numberOfGuests, formState.occasion)
-    const success = submitAPI(formState)
-    if (success) {
+    if (submitAPI(formState)) {
       console.log('Reservation successful')
-      dispatch({ type: RAK.Reset, payload: null })
+      dispatch(updateReservation(formState))
+      setSuccess(true)
     } else {
       console.error('Reservation failed')
     }
@@ -53,7 +67,7 @@ const BookingForm = () => {
           type='date'
           id='res-date'
           value={formState.date.toString()}
-          onChange={(e) => dispatch({ type: RAK.ChooseDate, payload: e.target.value })}
+          onChange={(e) => setFormState({ ...formState, date: e.target.value })}
         />
 
         <InputLabel id='time-label' htmlFor='res-time'>
@@ -63,7 +77,7 @@ const BookingForm = () => {
           id='res-time'
           labelId='time-label'
           value={formState.time}
-          onChange={(e) => dispatch({ type: RAK.SetTime, payload: e.target.value })}
+          onChange={(e) => setFormState({ ...formState, time: e.target.value })}
         >
           {formState.availableTimes.map((time: string) => (
             <MenuItem key={time} value={time}>
@@ -78,7 +92,7 @@ const BookingForm = () => {
           defaultValue={1}
           min={1}
           max={10}
-          onValueChange={(value) => dispatch({ type: RAK.SetNumberOfGuests, payload: value ?? 0 })}
+          onValueChange={(value) => setFormState({ ...formState, numberOfGuests: value ?? 0 })}
           className={styles.Field}
         >
           <NumberField.ScrubArea className={styles.ScrubArea}>
@@ -104,7 +118,7 @@ const BookingForm = () => {
           id='occasion'
           labelId='occasion-label'
           value={formState.occasion}
-          onChange={(e) => dispatch({ type: RAK.SetOccasion, payload: e.target.value })}
+          onChange={(e) => setFormState({ ...formState, occasion: e.target.value })}
         >
           {occasions.map((occasion: string) => (
             <MenuItem key={occasion} value={occasion}>
@@ -112,7 +126,9 @@ const BookingForm = () => {
             </MenuItem>
           ))}
         </Select>
-        <Button type='submit' variant='contained'>Make your reservation</Button>
+        <Button type='submit' variant='contained'>
+          Make your reservation
+        </Button>
       </Box>
     </Container>
   )
