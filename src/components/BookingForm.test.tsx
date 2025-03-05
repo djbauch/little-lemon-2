@@ -4,7 +4,7 @@ import { expect, test } from 'vitest'
 import { Provider } from 'react-redux'
 import { store } from '../app/store'
 import { BrowserRouter } from 'react-router'
-import { page } from '@vitest/browser/context'
+//import { page } from '@vitest/browser/context'
 
 test('BookingForm renders', async () => {
   const screen = render(

@@ -12,7 +12,8 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test": "vitest",
+    "test": "vitest run",
+    "test:watch": "vitest run --watch",
     "test:jest": "cross-env NODE_OPTIONS='--experimental-vm-modules' jest --jsx=react",
     "test:jest:watch": "cross-env NODE_OPTIONS='--experimental-vm-modules' jest --watch --jsx=react"
   },
