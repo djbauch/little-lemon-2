@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@base-ui-components/react": "^1.0.0-alpha.6",
+    "@chakra-ui/react": "^2.10.6",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@fontsource-variable/karla": "^5.1.1",

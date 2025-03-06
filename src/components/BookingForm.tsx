@@ -1,19 +1,25 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { DateTime } from 'luxon'
-import { Button, Container, Typography, Box, InputLabel, Select, MenuItem } from '@mui/material'
-import { NumberField } from '@base-ui-components/react/number-field'
-import { fetchAPI, submitAPI } from '../APIMock'
-import styles from './BookingForm.module.scss'
-import AddIcon from '@mui/icons-material/Add'
-import RemoveIcon from '@mui/icons-material/Remove'
-import { initialState, updateReservation } from '../features/reservation/reservationSlice'
-import { useAppDispatch } from '../app/hooks'
-
-import { useFormik, Form, Field, ErrorMessage, FormikProps } from 'formik'
+import {
+  Button,
+  Container,
+  Heading,
+  Box,
+  FormControl,
+  FormLabel,
+  Select,
+  Input,
+  FormErrorMessage,
+  Spinner,
+} from '@chakra-ui/react'
+import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import { fetchAPI, submitAPI } from '../APIMock'
+import { useAppDispatch } from '../app/hooks'
+import { initialState, updateReservation } from '../features/reservation/reservationSlice'
+
+// Define the type for form values
 interface FormValues {
   date: string
   time: string
@@ -21,26 +27,25 @@ interface FormValues {
   occasion: string
 }
 
+// Validation schema using Yup
+const validationSchema = Yup.object({
+  date: Yup.string().required('Please select a date.'),
+  time: Yup.string().required('Please select a time.'),
+  numberOfGuests: Yup.number()
+    .min(1, 'At least 1 guest is required.')
+    .max(10, 'Maximum of 10 guests allowed.')
+    .required('Please enter the number of guests.'),
+  occasion: Yup.string().required('Please select an occasion.'),
+})
+
 const BookingForm = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const [availableTimes, setAvailableTimes] = useState<string[]>([])
-  const formik = useFormik({
-    initialValues: {
-      date: '',
-      time: '',
-      numberOfGuests: 1,
-      occasion: 'None',
-    },
-    validationSchema: Yup.object({
-      date: Yup.string().required('Please choose a date.'),
-      time: Yup.string().required('Please choose a time.'),
-      numberOfGuests: Yup.number()
-        .min(1, 'Must be at least 1 guest.')
-        .max(10, 'Maximum 10 guests allowed.')
-        .required('Please specify number of guests.'),
-      occasion: Yup.string().required('Please select an occasion.'),
-    }),
+
+  const formik = useFormik<FormValues>({
+    initialValues: initialState,
+    validationSchema,
     onSubmit: (values) => {
       console.log('Reservation submitted:', values)
       if (submitAPI(values)) {
@@ -53,128 +58,102 @@ const BookingForm = () => {
     },
   })
 
+  // Fetch available times when date changes
+  useEffect(() => {
+    if (formik.values.date) {
+      const times = fetchAPI(DateTime.fromISO(formik.values.date))
+      setAvailableTimes(times)
+    }
+  }, [formik.values.date])
+
   const occasions = ['None', 'Birthday', 'Anniversary', 'Wedding', 'Graduation', 'Other']
 
   return (
-    <Container maxWidth='sm'>
-      <Form>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 2,
-            p: 3,
-            backgroundColor: 'white',
-            borderRadius: 8,
-            boxShadow: 3,
-          }}
-        >
-          <Typography variant='h5' align='center' gutterBottom>
+    <Container maxW='md' py={6}>
+      <form onSubmit={formik.handleSubmit}>
+        <Box p={6} boxShadow='md' borderRadius='md' bg='white'>
+          <Heading size='lg' mb={4} textAlign='center'>
             Reserve a Table
-          </Typography>
+          </Heading>
 
-          <Field name='date'>
-            {({ field }: any) => (
-              <>
-                <label htmlFor='res-date'>Choose date</label>
-                <input
-                  type='date'
-                  id='res-date'
-                  {...formik.getFieldProps('date')}
-                  onChange={(e) => {
-                    setFieldValue('date', e.target.value)
-                    const times = fetchAPI(DateTime.fromISO(e.target.value))
-                    setAvailableTimes(times)
-                  }}
-                />
-                <ErrorMessage name='date' component='div' className='Error' />
-              </>
-            )}
-          </Field>
+          {/* Date Field */}
+          <FormControl mb={4} isInvalid={!!formik.errors.date && formik.touched.date}>
+            <FormLabel htmlFor='date'>Choose date</FormLabel>
+            <Input
+              id='date'
+              type='date'
+              value={formik.values.date}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            <FormErrorMessage>{formik.errors.date}</FormErrorMessage>
+          </FormControl>
 
-          <Field name='time'>
-            {({ field }: any) => (
-              <>
-                <InputLabel id='time-label' htmlFor='res-time'>
-                  Choose time
-                </InputLabel>
-                <Select
-                  id='res-time'
-                  {...field}
-                  value={values.time}
-                  onChange={(e) => setFieldValue('time', e.target.value)}
-                >
-                  {availableTimes.map((time) => (
-                    <MenuItem key={time} value={time}>
-                      {time}
-                    </MenuItem>
-                  ))}
-                </Select>
-                <ErrorMessage name='time' component='div' className='Error' />
-              </>
-            )}
-          </Field>
+          {/* Time Field */}
+          <FormControl mb={4} isInvalid={!!formik.errors.time && formik.touched.time}>
+            <FormLabel htmlFor='time'>Choose time</FormLabel>
+            <Select
+              id='time'
+              placeholder='Select time'
+              value={formik.values.time}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            >
+              {availableTimes.map((time) => (
+                <option key={time} value={time}>
+                  {time}
+                </option>
+              ))}
+            </Select>
+            <FormErrorMessage>{formik.errors.time}</FormErrorMessage>
+          </FormControl>
 
-          <Field name='numberOfGuests'>
-            {() => (
-              <>
-                <NumberField.Root
-                  id='res-guests'
-                  value={values.numberOfGuests}
-                  defaultValue={1}
-                  min={1}
-                  max={10}
-                  onValueChange={(value) => setFieldValue('numberOfGuests', value ?? 0)}
-                  className={styles.Field}
-                >
-                  <NumberField.ScrubArea className={styles.ScrubArea}>
-                    <label htmlFor='res-guests' className={styles.Label}>
-                      Number of guests
-                    </label>
-                  </NumberField.ScrubArea>
-                  <NumberField.Group className={styles.Group}>
-                    <NumberField.Decrement className={styles.Decrement}>
-                      <RemoveIcon />
-                    </NumberField.Decrement>
-                    <NumberField.Input className={styles.Input} />
-                    <NumberField.Increment className={styles.Increment}>
-                      <AddIcon />
-                    </NumberField.Increment>
-                  </NumberField.Group>
-                </NumberField.Root>
-                <ErrorMessage name='numberOfGuests' component='div' className='Error' />
-              </>
-            )}
-          </Field>
+          {/* Number of Guests Field */}
+          <FormControl mb={4} isInvalid={!!formik.errors.numberOfGuests && formik.touched.numberOfGuests}>
+            <FormLabel htmlFor='numberOfGuests'>Number of guests</FormLabel>
+            <Input
+              id='numberOfGuests'
+              type='number'
+              min={1}
+              max={10}
+              value={formik.values.numberOfGuests}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            <FormErrorMessage>{formik.errors.numberOfGuests}</FormErrorMessage>
+          </FormControl>
 
-          <Field name='occasion'>
-            {({ field }: any) => (
-              <>
-                <InputLabel id='occasion-label' htmlFor='occasion'>
-                  Occasion
-                </InputLabel>
-                <Select
-                  id='occasion'
-                  {...field}
-                  value={values.occasion}
-                  onChange={(e) => setFieldValue('occasion', e.target.value)}
-                >
-                  {occasions.map((occasion) => (
-                    <MenuItem key={occasion} value={occasion}>
-                      {occasion}
-                    </MenuItem>
-                  ))}
-                </Select>
-                <ErrorMessage name='occasion' component='div' className='Error' />
-              </>
-            )}
-          </Field>
+          {/* Occasion Field */}
+          <FormControl mb={4} isInvalid={!!formik.errors.occasion && formik.touched.occasion}>
+            <FormLabel htmlFor='occasion'>Occasion</FormLabel>
+            <Select
+              id='occasion'
+              placeholder='Select occasion'
+              value={formik.values.occasion}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            >
+              {occasions.map((occasion) => (
+                <option key={occasion} value={occasion}>
+                  {occasion}
+                </option>
+              ))}
+            </Select>
+            <FormErrorMessage>{formik.errors.occasion}</FormErrorMessage>
+          </FormControl>
 
-          <Button type='submit' variant='contained' disabled={isSubmitting || !isValid}>
-            {isSubmitting ? 'Submitting...' : 'Make your reservation'}
+          {/* Submit Button */}
+          <Button
+            type='submit'
+            colorScheme='teal'
+            width='full'
+            mt={4}
+            isDisabled={!formik.isValid || formik.isSubmitting}
+          >
+            {formik.isSubmitting ? <Spinner size='sm' /> : 'Make your reservation'}
           </Button>
         </Box>
-      </Form>
+      </form>
     </Container>
   )
 }
