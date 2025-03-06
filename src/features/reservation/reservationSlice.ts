@@ -8,7 +8,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 export interface ReservationState {
   date: string
-  availableTimes: string[]
+  availableTimes?: string[]
   time: string
   numberOfGuests: number
   occasion: string
