@@ -2,7 +2,6 @@ import * as React from 'react'
 import { Grid2 as Grid } from '@mui/material'
 import { NavLink } from 'react-router'
 import FacebookIcon from '@mui/icons-material/Facebook'
-import XIcon from '@mui/icons-material/X'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import YouTubeIcon from '@mui/icons-material/YouTube'
 import TwitterIcon from '@mui/icons-material/Twitter'
@@ -10,7 +9,7 @@ export const Footer = () => {
   return (
     <Grid container spacing={2} className='bounded'>
       <Grid size={3}>
-        <img src='2025-02-25_8-01-47LL.png' />
+        <img src='2025-02-25_8-01-47LL.png' alt='Little Lemon Logo' />
       </Grid>
       <Grid size={3}>
         <h3>Doormat Nav</h3>
@@ -52,16 +51,16 @@ export const Footer = () => {
         <nav>
           <ul style={{ listStyle: 'none', textAlign: 'left', paddingLeft: 0 }}>
             <li>
-              <FacebookIcon  sx={{fontSize: 32}}/>
+              <FacebookIcon sx={{ fontSize: 32 }} />
             </li>
             <li>
-              <InstagramIcon sx={{fontSize: 32}} />
+              <InstagramIcon sx={{ fontSize: 32 }} />
             </li>
             <li>
-              <YouTubeIcon  sx={{fontSize: 32}} />
+              <YouTubeIcon sx={{ fontSize: 32 }} />
             </li>
             <li>
-              <TwitterIcon  sx={{fontSize: 32}}/>
+              <TwitterIcon sx={{ fontSize: 32 }} />
             </li>
           </ul>
         </nav>
