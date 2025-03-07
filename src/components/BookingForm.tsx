@@ -71,7 +71,7 @@ const BookingForm = () => {
   return (
     <Container maxW='md' py={6}>
       <form onSubmit={formik.handleSubmit}>
-        <Box p={6} boxShadow='md' borderRadius='md' bg='white'>
+        <Box p={6} boxShadow='md' borderRadius='md' bg='#f4ce14'>
           <Heading size='lg' mb={4} textAlign='center'>
             Reserve a Table
           </Heading>
@@ -86,7 +86,7 @@ const BookingForm = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            <FormErrorMessage>{formik.errors.date}</FormErrorMessage>
+            <FormErrorMessage color='red'>{formik.errors.date}</FormErrorMessage>
           </FormControl>
 
           {/* Time Field */}
@@ -105,7 +105,7 @@ const BookingForm = () => {
                 </option>
               ))}
             </Select>
-            <FormErrorMessage>{formik.errors.time}</FormErrorMessage>
+            <FormErrorMessage color='red'>{formik.errors.time}</FormErrorMessage>
           </FormControl>
 
           {/* Number of Guests Field */}
@@ -139,7 +139,7 @@ const BookingForm = () => {
                 </option>
               ))}
             </Select>
-            <FormErrorMessage>{formik.errors.occasion}</FormErrorMessage>
+            <FormErrorMessage color='red'>{formik.errors.occasion}</FormErrorMessage>
           </FormControl>
 
           {/* Submit Button */}
