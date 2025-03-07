@@ -71,7 +71,7 @@ const BookingForm = () => {
   return (
     <Container maxW='md' py={6}>
       <form onSubmit={formik.handleSubmit}>
-        <Box p={6} boxShadow='md' borderRadius='md' bg='#f4ce14'>
+        <Box p={6} boxShadow='md' borderRadius='md' bg='#495e57' color='white'>
           <Heading size='lg' mb={4} textAlign='center'>
             Reserve a Table
           </Heading>
@@ -82,6 +82,8 @@ const BookingForm = () => {
             <Input
               id='date'
               type='date'
+              bg='#f8e28f'
+              color='black'
               value={formik.values.date}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -96,6 +98,7 @@ const BookingForm = () => {
               id='time'
               placeholder='Select time'
               value={formik.values.time}
+              color='black'
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             >
@@ -146,6 +149,7 @@ const BookingForm = () => {
           <Button
             type='submit'
             colorScheme='teal'
+            bg='#f4ce14'
             width='full'
             mt={4}
             isDisabled={!formik.isValid || formik.isSubmitting}

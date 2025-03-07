@@ -23,7 +23,7 @@ $font-size-base: 16px;
   --brand-highlight-dark-color: oklch(46.23% 0.0279 172.69);
   --color-gray-50: oklch(98.42% 0.0034 247.86);
   --color-gray-100: oklch(12% 9.5% 264 / 5%);
-  --color-gray-200: oklch(12% 9.0% 264 / 8%);
+  --color-gray-200: oklch(12% 9% 264 / 8%);
   --color-gray-300: oklch(12% 8.5% 264 / 17%);
   --color-gray-900: oklch(12% 5% 264 / 90%);
 
@@ -44,12 +44,11 @@ $font-size-base: 16px;
   box-sizing: inherit;
 }
 
-
 body {
   font-family: var(--main-font);
   font-size: 16px;
   width: 100%;
-  background-color:  #ffffff;
+  background-color: #ffffff;
   color: black;
   box-sizing: border-box;
 }
@@ -103,8 +102,7 @@ nav > img {
   font-size: 18px;
 }
 
-
-a.active{
+a.active {
   background-color: #f4ce14;
 }
 
@@ -151,7 +149,6 @@ main {
   margin-left: 64px;
   display: block;
   width: 65em;
-
 }
 .right-side {
   display: block;
@@ -182,7 +179,7 @@ main {
 }
 
 .hero p {
-  display:inline;
+  display: inline;
   margin-top: 0;
   font-size: 18pt;
   font-weight: regular;
@@ -197,7 +194,6 @@ main {
   margin-left: 64px;
   margin-top: 64px;
 }
-
 
 .textblock {
   display: block;
@@ -214,17 +210,16 @@ main {
   display: block;
   background-color: white;
   color: #495e57;
-
 }
 
-.highlights  {
+.highlights {
   margin-top: 120px;
   margin-left: 64px;
 }
 
 .cards {
   margin-top: 64px;
-  margin-left:64px;
+  margin-left: 64px;
   align-self: center;
 }
 
@@ -244,7 +239,7 @@ main {
 }
 
 .acknowledgement {
-  background-color: var(--brand-light-color)
+  background-color: var(--brand-light-color);
 }
 
 button {
@@ -340,7 +335,7 @@ button:focus-visible {
 }
 
 .ScrubAreaCursor {
-  filter: drop-shadow(0 1px 1px #0008)
+  filter: drop-shadow(0 1px 1px #0008);
 }
 
 .Label {
@@ -383,5 +378,9 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+  select {
+    background-color: #f8e28f;
+    color: black;
   }
 }
