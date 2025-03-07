@@ -12,8 +12,8 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test": "vitest run",
-    "test:watch": "vitest run --watch"
+    "test": "vitest run --project=application",
+    "test:watch": "vitest watch --project=application"
   },
   "dependencies": {
     "@base-ui-components/react": "^1.0.0-alpha.6",
