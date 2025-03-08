@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { TestimonialData } from '../types'
-import { Box, Grid2 as Grid, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import RatingBox from './RatingBox'
 export const Testimonials = () => {
   const [testimonials] = useState<TestimonialData[]>([
