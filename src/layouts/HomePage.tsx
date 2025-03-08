@@ -1,4 +1,3 @@
-import * as React from 'react'
 import Hero from '../components/Hero'
 import Highlights from '../components/Highlights'
 import Testimonials from '../components/Testimonials'

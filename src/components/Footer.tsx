@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { Grid2 as Grid } from '@mui/material'
 import { NavLink } from 'react-router'
 import FacebookIcon from '@mui/icons-material/Facebook'

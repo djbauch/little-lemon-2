@@ -79,7 +79,7 @@ const BookingForm = () => {
           value={formState.time}
           onChange={(e) => setFormState({ ...formState, time: e.target.value })}
         >
-          {formState.availableTimes.map((time: string) => (
+          {formState.availableTimes!.map((time: string) => (
             <MenuItem key={time} value={time}>
               {time}
             </MenuItem>

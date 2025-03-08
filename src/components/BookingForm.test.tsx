@@ -6,7 +6,6 @@ import { userEvent } from '@vitest/browser/context'
 import { Provider } from 'react-redux'
 import { store } from '../app/store'
 import { BrowserRouter } from 'react-router'
-import { page } from '@vitest/browser/context'
 
 describe('BookingForm', () => {
   it('renders form correctly', async () => {
