@@ -1,7 +1,6 @@
-import * as React from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { Stack } from '@mui/material'
+import { Stack, Box } from '@mui/material'
 import { MenuCard, type MenuCardProps } from '../components/MenuCard'
 
 const MenuItems: MenuCardProps[] = [
@@ -64,8 +63,7 @@ const MenuItems: MenuCardProps[] = [
     title: 'Okra',
     label: 'Okra with Tomato Sauce',
     price: 10.99,
-    description:
-      'Our okra is locally sourced.',
+    description: 'Our okra is locally sourced.',
   },
   {
     imageURL: 'pork-cutlet256.jpg',
@@ -95,25 +93,26 @@ const MenuItems: MenuCardProps[] = [
     title: 'Rib Cap',
     label: 'Rib Cap',
     price: 98.99,
-    description: 'Our rib cap is made from the finest grass-fed beef. Our supplier is Applegate\u00AE Organic Beef farmers.',
+    description:
+      'Our rib cap is made from the finest grass-fed beef. Our supplier is Applegate\u00AE Organic Beef farmers.',
   },
   {
     imageURL: '/spam256.jpg',
     title: 'Spam',
     label: 'Spam',
     price: 8.99,
-    description: 'Our spam is made from the finest pork byproducts in a can and served with a side of our homemade garlic aioli.',
+    description:
+      'Our spam is made from the finest pork byproducts in a can and served with a side of our homemade garlic aioli.',
   },
   {
     imageURL: '/swordfish-egg256.jpg',
     title: 'Swordfish and Egg',
     label: 'Swordfish and Egg',
     price: 23.99,
-    description:
-      'Our fresh caught swordfish is served with a fried egg for a reason nobody can remember.',
+    description: 'Our fresh caught swordfish is served with a fried egg for a reason nobody can remember.',
   },
   {
-    imageURL: '/greek salad.jpg',
+    imageURL: '/greek salad264.jpg',
     title: 'Greek Salad',
     label: 'Greek Salad',
     price: 12.99,
@@ -142,13 +141,29 @@ export const Menu = () => {
   return (
     <>
       <Header />
-      <Stack className='menu' direction='column' alignItems='center' component={'section'}>
-        <h2>Menu</h2>
-          <Stack direction='row' spacing={4} className='cards' alignItems='start' flexWrap='wrap'>
-            {MenuItems.map((menuCard) => (
-              <MenuCard key={menuCard.label} {...menuCard} />
-            ))}
-          </Stack>
+      <Stack
+        className='menu'
+        direction='column'
+        alignItems='center'
+        component={'section'}
+        sx={{ padding: 0, margin: 0, width: '100%' }}
+      >
+        <h2>Today's Fabulous Menu</h2>
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(264px, 1fr))',
+            gridGap: '16px', // Space between cards
+            justifyContent: 'center',
+            maxWidth: '1320px', // 264px * 5 = 1320px for 5 cards per row
+            width: '100%',
+            padding: '16px',
+          }}
+        >
+          {MenuItems.map((menuCard) => (
+            <MenuCard key={menuCard.label} {...menuCard} />
+          ))}
+        </Box>
       </Stack>
       <Footer />
     </>
