@@ -9,7 +9,9 @@ import { type TestimonialData } from '../types'
 export function RatingBox(props: Readonly<{ testimonialData: TestimonialData }>): JSX.Element {
 
   return (
-    <Card className='rating-box' sx={{ display: 'flex' }}>
+    <Card className='rating-box' sx={{ display: 'flex', maxWidth: 264, minWidth: 264,
+      height: 264, flexDirection: 'column', justifyContent: 'space-between', padding: 2, gap: 2
+     }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '16px', minWidth: '232px' }}>
         <Rating value={props.testimonialData.rating} readOnly />
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}>
