@@ -1,11 +1,9 @@
 
 import { DateTime } from 'luxon'
 import { createSlice } from '@reduxjs/toolkit'
-//import type { PayloadAction } from '@reduxjs/toolkit'
-//import { createAppSlice } from '../../app/createAppSlice'
-//import type { AppThunk } from '../../app/store'
-//import { fetchAPI } from '../../APIMock'
 
+// This part is redundant now. Before introducing Redux Toolkit, these were the types and actions used in the Reservation reducer
+// The Reservation reducer is now embedded in the reservationSlice
 export interface ReservationState {
   date: string
   availableTimes?: string[]
@@ -60,6 +58,8 @@ export enum RAK {
   Reset = 'RESET',
 }
 
+// Before using Redux Toolkit, the Reservation reducer was defined as a function
+// The function takes the current state and an action, and returns the new state
 export function reservationReducer(state: ReservationState, action: Action): ReservationState {
   const { type, payload } = action
 
@@ -89,6 +89,8 @@ export const initialState: ReservationState = {
   occasion: 'None',
 }
 
+// The Reservation reducer is embedded in the reservationSlice for use with Redux Toolkit
+// The reservationSlice is used in the BookingForm component
 export const reservationSlice = createSlice({
   name: 'reservation',
   initialState,
