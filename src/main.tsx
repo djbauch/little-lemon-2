@@ -17,7 +17,7 @@ import Reservations from './layouts/Reservations'
 import Acknowledgement from './layouts/Acknowledgement'
 import { Provider } from 'react-redux'
 import { store } from './app/store'
-import theme from './themes.ts'
+import { lightTheme as theme} from './themes.ts'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

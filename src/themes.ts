@@ -1,21 +1,8 @@
 import { createTheme } from '@mui/material/styles'
 import tokens from './designTokens'
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: tokens.primary,
-      dark: '#495e57',
-    },
-    secondary: {
-      main: tokens.secondary,
-      light: '#FBDABB',
-    },
-    background: {
-      default: '#FFFFFF',
-      paper: '#f4ce14',
-    },
-  },
+const commonThemeElements = createTheme({
+
   typography: {
     // Titles
     h1: {
@@ -76,6 +63,24 @@ const theme = createTheme({
     caption: {
       fontFamily: tokens.sansFontFamily,
     }
+  }
+})
+
+export const lightTheme = createTheme({
+  ...commonThemeElements,
+  palette: {
+    primary: {
+      main: tokens.primary,
+      dark: '#495e57',
+    },
+    secondary: {
+      main: tokens.secondary,
+      light: '#FBDABB',
+    },
+    background: {
+      default: '#FFFFFF',
+      paper: '#f4ce14',
+    },
   },
   components: {
     MuiCard: {
@@ -90,4 +95,34 @@ const theme = createTheme({
   }
 })
 
-export default theme
+export const darkTheme = createTheme({
+  ...commonThemeElements,
+  palette: {
+    primary: {
+      main: tokens.primary,
+      dark: '#495e57',
+    },
+    secondary: {
+      main: tokens.secondary,
+      light: '#FBDABB',
+    },
+    background: {
+      default: '#000000',
+      paper: '#495e57',
+    },
+  },
+  components: {
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#495e57',
+          borderRadius: '16px',
+          boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+        },
+      },
+    },
+  }
+})
+
+
+export default lightTheme
