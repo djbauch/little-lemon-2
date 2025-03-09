@@ -23,7 +23,9 @@ dist-ssr
 *.sln
 *.sw?
 
-# remnants from buil
+# remnants from build and test
 tsconfig.tsbuildinfo
+__screenshots__
+__snapshots__
 
 *storybook.log
