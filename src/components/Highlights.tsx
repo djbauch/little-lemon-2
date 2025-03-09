@@ -4,6 +4,7 @@ import { Grid2 as Grid } from '@mui/material'
 
 import StyledButton from './StyledButton'
 import { MenuCard, type MenuCardProps } from './MenuCard'
+import { useTheme } from '@mui/material/styles'
 
 const MenuHighlights: MenuCardProps[] = [
   {
@@ -31,9 +32,13 @@ const MenuHighlights: MenuCardProps[] = [
       'This comes straight from grandma’s recipe book, every last ingredient has been sourced and is as authentic as can be imagined.',
   },
 ]
+
 export const Highlights = () => {
+  const theme = useTheme()
   return (
-    <Stack className='highlights'>
+    <Stack
+      sx={{ display: 'block', color: theme.palette.secondary.main, mt: 120, ml: 64 }}
+    >
       <Grid container spacing={2} className='bounded'>
         <Grid size={6}>
           <Typography variant='h2'>This week's specials!</Typography>

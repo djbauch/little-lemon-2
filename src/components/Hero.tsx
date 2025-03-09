@@ -1,4 +1,6 @@
 import styled from '@emotion/styled'
+import { Box, Typography } from '@mui/material'
+import { useTheme } from '@mui/material/styles'
 
 export const Button = styled.button`
   background-color: #f4ce14;
@@ -14,22 +16,23 @@ export const Button = styled.button`
   cursor: pointer;
 `
 export const Hero = () => {
+  const theme = useTheme()
   return (
-    <section className='hero'>
+    <Box component='section' sx={{ display: 'flex', bgcolor: theme.palette.primary.dark, py: 8, maxHeight: 960, minHeight: 960 }}>
       <section className='left-side'>
-        <h1>Little Lemon</h1>
-        <h2>Ipswich</h2>
-        <div className='textblock'>
-          <p>
+        <Typography variant='h1' sx={{color: theme.palette.primary.light }}>Little Lemon</Typography>
+        <Typography variant='h2' sx={{ color: 'white'}}>Ipswich</Typography>
+        <Box component='div' sx={{ display: 'block', width: '32em', maxWidth: '32em', mt: 0}}>
+          <Typography sx={{ display: 'block', color: 'white', fontSize: '20pt', fontWeight: 'regular', maxWidth: '32em' }}>
             We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist
-          </p>
-        </div>
+          </Typography>
+        </Box>
         <Button>Reserve a Table</Button>
       </section>
       <section className='right-side'>
         <img src='/restauranfood720.jpg' height='1020px' alt='food on a tray' />
       </section>
-    </section>
+    </Box>
   )
 }
 
