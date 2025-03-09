@@ -1,5 +1,7 @@
 # Little Lemon Website with React + TypeScript + Vite
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3dcc5c42-9bf7-45b3-9c77-378feea263bd/deploy-status)](https://app.netlify.com/sites/profound-sunflower-608ddf/deploys)
+
 I did not start the project with the deprecated Create React App. Instead I used a template that provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Also, I did all of my work in the TypeScript dialect, which is transpiled into EcmaScript by the Babel transpiler. The resulting EcmaScript is what the browser sees.

@@ -23,7 +23,7 @@ export const Header = () => {
 
   return (
     <Slide in={show} direction='down'>
-      <AppBar position='sticky'>
+      <AppBar position='sticky' sx={{ backgroundColor: 'white', padding: 0 }}>
         <Toolbar sx={{ justifyContent: 'space-between', backgroundColor: 'white' }}>
           <img src='/Logo.svg' alt='Logo' style={{ height: 40 }} />
           <Nav />
