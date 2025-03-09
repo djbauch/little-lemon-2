@@ -1,4 +1,3 @@
-// Migrated to MUI from Chakra-UI
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { DateTime } from 'luxon'
