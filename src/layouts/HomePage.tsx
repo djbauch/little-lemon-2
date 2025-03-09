@@ -8,14 +8,14 @@ import Footer from '../components/Footer'
 export const HomePage = () => {
   return (
     <>
-    <Header />
-    <main>
-      <Hero />
-      <Highlights />
-      <Testimonials />
-      <About />
-    </main>
-    <Footer />
+      <Header />
+      <main>
+        <Hero />
+        <Highlights />
+        <Testimonials />
+        <About />
+      </main>
+      <Footer />
     </>
   )
 }

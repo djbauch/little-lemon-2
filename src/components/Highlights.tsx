@@ -46,7 +46,6 @@ export const Highlights = () => {
         {MenuHighlights.map((menuCard) => (
           <MenuCard key={menuCard.label} {...menuCard} />
         ))}
-
       </Stack>
     </Stack>
   )

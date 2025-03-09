@@ -15,7 +15,7 @@ export const fetchAPI = function (date: DateTime) {
   const result = []
   const random = seededRandom(date.day)
 
-  console.log('Day is ' + date.day )
+  console.log('Day is ' + date.day)
   for (let i = 17; i <= 23; i++) {
     if (random() < 0.5) {
       result.push(i + ':00')

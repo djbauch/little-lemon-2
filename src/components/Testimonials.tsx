@@ -35,7 +35,7 @@ export const Testimonials = () => {
         }}
       >
         {testimonials.map((testimonial) => (
-            <RatingBox key={testimonial.name} testimonialData={testimonial} />
+          <RatingBox key={testimonial.name} testimonialData={testimonial} />
         ))}
       </Box>
     </Box>

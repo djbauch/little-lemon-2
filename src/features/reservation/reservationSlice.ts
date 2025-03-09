@@ -1,4 +1,3 @@
-
 import { DateTime } from 'luxon'
 import { createSlice } from '@reduxjs/toolkit'
 
@@ -101,7 +100,7 @@ export const reservationSlice = createSlice({
       state.time = time
       state.numberOfGuests = numberOfGuests
       state.occasion = occasion
-    }
+    },
   },
   selectors: {
     selectDate: (state) => state.date,
@@ -109,8 +108,9 @@ export const reservationSlice = createSlice({
     selectTime: (state) => state.time,
     selectNumberOfGuests: (state) => state.numberOfGuests,
     selectOccasion: (state) => state.occasion,
-  }
+  },
 })
 
 export const { updateReservation } = reservationSlice.actions
-export const { selectDate, selectAvailableTimes, selectTime, selectNumberOfGuests, selectOccasion } = reservationSlice.selectors
+export const { selectDate, selectAvailableTimes, selectTime, selectNumberOfGuests, selectOccasion } =
+  reservationSlice.selectors

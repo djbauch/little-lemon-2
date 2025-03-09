@@ -3,12 +3,11 @@ import Footer from '../components/Footer'
 import ConfirmedBooking from '../components/ConfirmedBooking'
 
 export const Acknowledgement = () => {
-
   return (
     <>
       <Header />
       <section className='confirmation'>
-        <ConfirmedBooking  />
+        <ConfirmedBooking />
       </section>
       <Footer />
     </>

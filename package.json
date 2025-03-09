@@ -72,6 +72,7 @@
     "jest-css-modules-transform": "^4.4.2",
     "jest-environment-jsdom": "^29.7.0",
     "playwright": "^1.50.1",
+    "prettier": "^3.5.3",
     "react-redux": "^9.2.0",
     "react-test-renderer": "^19.0.0",
     "sass": "^1.85.0",

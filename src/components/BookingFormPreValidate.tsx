@@ -7,10 +7,7 @@ import { fetchAPI, submitAPI } from '../APIMock'
 import styles from './BookingForm.module.scss'
 import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
-import {
-  initialState,
-  updateReservation,
-} from '../features/reservation/reservationSlice'
+import { initialState, updateReservation } from '../features/reservation/reservationSlice'
 
 import { useAppDispatch } from '../app/hooks'
 

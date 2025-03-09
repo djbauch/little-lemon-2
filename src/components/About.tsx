@@ -5,7 +5,7 @@ export const About = () => {
   return (
     <section className='about'>
       <Grid container spacing={2} className='bounded'>
-        <Grid size={6} >
+        <Grid size={6}>
           <Typography variant='h1'>Little Lemon</Typography>
           <Typography variant='h2'>Ipswich</Typography>
           <div className='textblock'>

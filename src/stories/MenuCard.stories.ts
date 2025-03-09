@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react'
 
-import { MenuCard } from '../components/MenuCard';
+import { MenuCard } from '../components/MenuCard'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -16,11 +16,10 @@ const meta = {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+} satisfies Meta<typeof MenuCard>
 
-} satisfies Meta<typeof MenuCard>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
@@ -29,7 +28,8 @@ export const Primary: Story = {
     title: 'Bruschetta',
     label: 'Bruschetta',
     price: 5.99,
-    description: 'Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.',
+    description:
+      'Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.',
     backgroundColor: 'white',
   },
-};
+}

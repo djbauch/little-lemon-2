@@ -1,4 +1,3 @@
-
 import styled from '@emotion/styled'
 
 export const Button = styled.button`
@@ -18,18 +17,18 @@ export const Hero = () => {
   return (
     <section className='hero'>
       <section className='left-side'>
-      <h1>Little Lemon</h1>
-      <h2>Ipswich</h2>
-      <div className='textblock'>
-      <p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist
-      </p>
-      </div>
-      <Button>Reserve a Table</Button>
+        <h1>Little Lemon</h1>
+        <h2>Ipswich</h2>
+        <div className='textblock'>
+          <p>
+            We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist
+          </p>
+        </div>
+        <Button>Reserve a Table</Button>
       </section>
       <section className='right-side'>
-
-        <img src='/restauranfood720.jpg' height='1020px' alt='food on a tray'/>
-        </section>
+        <img src='/restauranfood720.jpg' height='1020px' alt='food on a tray' />
+      </section>
     </section>
   )
 }

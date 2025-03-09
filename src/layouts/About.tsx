@@ -5,8 +5,8 @@ export const About = () => {
   return (
     <>
       <Header />
-      <section className='about' style={{marginBottom: '128px'}}>
-        <Hero/>
+      <section className='about' style={{ marginBottom: '128px' }}>
+        <Hero />
       </section>
       <Footer />
     </>

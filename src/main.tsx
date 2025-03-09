@@ -105,16 +105,16 @@ createRoot(document.getElementById('root')!).render(
     <CssBaseline />
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-      <Provider store={store}>
-        <Routes>
-          <Route path='/' element={<App />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/menu' element={<Menu />} />
-          <Route path='/reservations' element={<Reservations />} />
-          <Route path='/acknowledgement' element={<Acknowledgement />} />
-          <Route path='/order' element={<Order />} />
-          <Route path='/login' element={<Login />} />
-        </Routes>
+        <Provider store={store}>
+          <Routes>
+            <Route path='/' element={<App />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/menu' element={<Menu />} />
+            <Route path='/reservations' element={<Reservations />} />
+            <Route path='/acknowledgement' element={<Acknowledgement />} />
+            <Route path='/order' element={<Order />} />
+            <Route path='/login' element={<Login />} />
+          </Routes>
         </Provider>
       </BrowserRouter>
     </ThemeProvider>

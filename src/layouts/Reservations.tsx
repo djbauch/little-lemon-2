@@ -6,8 +6,16 @@ export const Reservations = () => {
   return (
     <>
       <Header />
-      <section className='reservations' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#f5f5f5', padding: '20px' }}>
-
+      <section
+        className='reservations'
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          backgroundColor: '#f5f5f5',
+          padding: '20px',
+        }}
+      >
         <BookingForm />
       </section>
       <Footer />
