@@ -6,7 +6,7 @@ import { store } from '../app/store'
 import { BrowserRouter } from 'react-router'
 
 const meta = {
-  title: 'LittleLemon/Components/BookingFormMUI',
+  title: 'LittleLemon/Components/BookingForm',
   component: BookingForm,
   tags: ['autodocs'],
   decorators: [

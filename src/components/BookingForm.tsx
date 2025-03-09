@@ -62,7 +62,7 @@ const BookingForm = () => {
             margin='normal'
             label='Choose date'
             type='date'
-            InputLabelProps={{ shrink: true }}
+            slotProps={{ inputLabel: { shrink: true } }}
             {...formik.getFieldProps('date')}
             error={!!formik.errors.date}
             helperText={formik.errors.date}
@@ -87,7 +87,11 @@ const BookingForm = () => {
             margin='normal'
             label='Number of guests'
             type='number'
-            InputProps={{ inputProps: { min: 1, max: 10 } }}
+            slotProps={{
+              input: {
+                inputProps: { min: 1, max: 10 },
+              },
+            }}
             {...formik.getFieldProps('numberOfGuests')}
             error={!!formik.errors.numberOfGuests}
             helperText={formik.errors.numberOfGuests}
