@@ -23,7 +23,7 @@ export const Hero = () => {
         <Typography variant='h1' sx={{color: theme.palette.primary.light }}>Little Lemon</Typography>
         <Typography variant='h2' sx={{ color: 'white'}}>Ipswich</Typography>
         <Box component='div' sx={{ display: 'block', width: '32em', maxWidth: '32em', mt: 0}}>
-          <Typography sx={{ display: 'block', color: 'white', fontSize: '20pt', fontWeight: 'regular', maxWidth: '32em' }}>
+          <Typography sx={{ display: 'block', color: 'white', fontSize: '20pt', fontWeight: 'regular', maxWidth: '32em', textAlign: 'justify', textJustify: 'distribute' }}>
             We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist
           </Typography>
         </Box>

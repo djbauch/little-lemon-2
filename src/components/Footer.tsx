@@ -8,7 +8,7 @@ export const Footer = () => {
   return (
     <Grid container spacing={2} className='bounded'>
       <Grid size={3}>
-        <img src='2025-02-25_8-01-47LL.png' alt='Little Lemon Logo' />
+        <img src='LitLemBox.png' alt='Little Lemon Logo' />
       </Grid>
       <Grid size={3}>
         <h3>Doormat Nav</h3>
