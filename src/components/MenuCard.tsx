@@ -77,6 +77,7 @@ export const MenuCard = ({ imageURL, title, label, price, description, backgroun
         </NameAndPriceBox>
         <Typography
           variant='body2'
+          textAlign={'left'}
           sx={{
             color: textColor,
             flexGrow: 1, // 🔥 Makes description fill available space

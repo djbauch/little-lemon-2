@@ -1,6 +1,4 @@
-import Typography from '@mui/material/Typography'
-import Stack from '@mui/material/Stack'
-import { Grid2 as Grid } from '@mui/material'
+import { Box, Grid2 as Grid, Typography } from '@mui/material'
 
 import StyledButton from './StyledButton'
 import { MenuCard, type MenuCardProps } from './MenuCard'
@@ -36,23 +34,25 @@ const MenuHighlights: MenuCardProps[] = [
 export const Highlights = () => {
   const theme = useTheme()
   return (
-    <Stack
-      sx={{ display: 'block', color: theme.palette.secondary.main, mt: 120, ml: 64 }}
-    >
-      <Grid container spacing={2} className='bounded'>
-        <Grid size={6}>
-          <Typography variant='h2'>This week's specials!</Typography>
-        </Grid>
-        <Grid size={4}>
-          <StyledButton>Online Menu</StyledButton>
-        </Grid>
-      </Grid>
-      <Stack direction='row' spacing={4} className='cards'>
+    <Box sx={{ display: 'block', color: theme.palette.secondary.main, textAlign: 'center', p: 2 }}>
+      <Typography
+        variant='h4'
+        component='h2'
+        sx={{ mb: 4, fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem', lg: '3rem', xl: '3.5rem' } }}
+      >
+        This week's specials!
+      </Typography>
+
+      <StyledButton>Online Menu</StyledButton>
+
+      <Grid container spacing={2} justifyContent='center' sx={{ maxWidth: 1200, mx: 'auto' }}>
         {MenuHighlights.map((menuCard) => (
-          <MenuCard key={menuCard.label} {...menuCard} />
+          <Grid key={menuCard.label}>
+            <MenuCard {...menuCard} />
+          </Grid>
         ))}
-      </Stack>
-    </Stack>
+      </Grid>
+    </Box>
   )
 }
 
