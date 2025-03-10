@@ -5,6 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline'
 import './scss/styles.scss'
 //import './index.css'
 import '@fontsource-variable/karla'
+import '@fontsource-variable/markazi-text'
 //import * as bootstrap from 'bootstrap'
 import App from './layouts/App.tsx'
 import { ThemeProvider } from '@emotion/react'
@@ -17,7 +18,7 @@ import Reservations from './layouts/Reservations'
 import Acknowledgement from './layouts/Acknowledgement'
 import { Provider } from 'react-redux'
 import { store } from './app/store'
-import { lightTheme as theme} from './themes.ts'
+import { lightTheme as theme } from './themes.ts'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

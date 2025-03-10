@@ -20,20 +20,20 @@ export const Hero = () => {
   const theme = useTheme()
   return (
     <Box
-      component="main"
+      component='main'
       sx={{
         display: 'flex',
         flexDirection: { xs: 'column', md: 'row' }, // Stacks on small screens, side-by-side on medium+
         alignItems: { xs: 'start', md: 'flex-start' }, // Top align when in row layout
         bgcolor: theme.palette.primary.dark,
+        color: theme.palette.primary.main,
         py: 8,
-        maxHeight: '100vh',
+        maxHeight: '96vh',
         // Removing fixed heights for natural responsiveness
       }}
     >
       <Box
-        component="section"
-
+        component='section'
         sx={{
           bgColor: theme.palette.primary.dark,
           flex: 1,
@@ -43,30 +43,31 @@ export const Hero = () => {
           justifyContent: 'flex-start', // Top alignment
           alignItems: { xs: 'flex-start', md: 'flex-start' },
           maxHeight: '80vh',
+          marginLeft: '64px',
         }}
       >
-        <Typography 
-          variant="h1" 
-          sx={{ 
+        <Typography
+          variant='h1'
+          sx={{
             textAlign: 'left',
-            color: theme.palette.primary.light,
-            fontSize: { xs: '2rem', md: '3rem' } // Responsive font size for title
+            color: theme.palette.primary.main,
+            fontSize: { xs: '2rem', md: '3rem' }, // Responsive font size for title
           }}
         >
           Little Lemon
         </Typography>
-        <Typography 
-          variant="h2" 
-          sx={{ 
+        <Typography
+          variant='h2'
+          sx={{
             textAlign: 'left',
             color: 'white',
-            fontSize: { xs: '1.5rem', md: '2rem' } // Responsive font size for subtitle
+            fontSize: { xs: '1.5rem', md: '2rem' }, // Responsive font size for subtitle
           }}
         >
           Ipswich
         </Typography>
         <Box
-          component="div"
+          component='div'
           sx={{
             mt: 2,
             width: { xs: '90%', md: '32em' },
@@ -90,27 +91,29 @@ export const Hero = () => {
       </Box>
 
       <Box
-        component="section"
-
+        component='section'
         sx={{
           flex: 1,
           p: 2,
           display: 'flex',
           alignItems: 'flex-start', // Ensures the image container is top-aligned
           justifyContent: 'center',
-          bgcolor: theme.palette.primary.dark,
+          bgcolor: 'transparent',
+          width: { xs: '100%', md: '50%' },
         }}
       >
         <Box
-          component="img"
-          src="/restauranfood720.jpg"
-          alt="food on a tray"
+          component='img'
+          src='/restauranfood720.jpg'
+          alt='food on a tray'
           sx={{
-            width: { xs: '100%', md: 'auto' }, // Full width on small screens
-            height: 'auto',                   // Maintain aspect ratio
+            width: { xs: '90%', md: 'auto' }, // Full width on small screens
+            height: 'auto', // Maintain aspect ratio
             maxWidth: { xs: '100%', md: '500px' }, // Optionally constrain on larger screens
+            maxHeight: { xs: '50vh', md: '90vh' }, // Optionally constrain on larger screens
             display: 'block',
-            maxHeight: '90vh',
+            objectFit: 'contain', // Maintain aspect ratio
+            borderRadius: '32px',
           }}
         />
       </Box>
