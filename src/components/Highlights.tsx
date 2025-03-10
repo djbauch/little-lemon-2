@@ -47,7 +47,7 @@ export const Highlights = () => {
 
       <Grid container spacing={2} justifyContent='center' sx={{ maxWidth: 1200, mx: 'auto' }}>
         {MenuHighlights.map((menuCard) => (
-          <Grid key={menuCard.label}>
+          <Grid key={menuCard.label} sx={{ xs: 12, sm: 6, md: 4 }}>
             <MenuCard {...menuCard} />
           </Grid>
         ))}
