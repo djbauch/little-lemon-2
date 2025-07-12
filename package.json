@@ -23,7 +23,7 @@
     "@fontsource-variable/markazi-text": "^5.2.6",
     "@fontsource/karla": "^5.1.1",
     "@fontsource/markazi-text": "^5.2.6",
-    "@mui/icons-material": "^6.4.7",
+    "@mui/icons-material": "^6.4.12",
     "@mui/material": "^6.4.8",
     "@popperjs/core": "^2.11.8",
     "@reduxjs/toolkit": "^2.6.0",
